@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/angular-animate.min.js"></script>
+    <script src="./js/angular-aria.min.js"></script>
+    <script src="./js/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="./js/angular-material.min.js"></script>
+
+    <link rel="stylesheet" href="./js/angular-material.min.css">
+
+</head>
+<body ng-app="MyApp" ng-cloak>
+
+Please enter a quantity and click the "Add" button to put this in your shopping cart
+
+<md-content ng-controller="AppCtrl">
+    <table border="2">
+        <th>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Qty</td>
+        <td></td>
+        </th>
+        <tbody>
+        <tr ng-repeat="product in products">
+            <td>{{product.name}}</td>
+            <td>$ {{product.price}}</td>
+            <td>
+                <input type="text" ng-model=product.qty/>
+            </td>
+            <td>
+                <md-button class="md-raised md-primary" ng-click="addToCart(product)">Add</md-button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <md-divider></md-divider>
+
+    Your Shopping Cart
+
+    <table border="2">
+        <th>
+        <td>Name</td>
+        <td>Qty</td>
+        <td>Amount</td>
+        </th>
+        <tbody>
+        <tr ng-repeat="product in cart">
+            <td>{{product.name}}</td>
+            <td>{{product.qty}}</td>
+            <td>$ {{product.qty * product.price}}</td>
+            <td>
+                <md-button class="md-raised md-primary">Delete</md-button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <md-divider></md-divider>
+
+    Total Amount: {{total}}
+
+    <md-divider></md-divider>
+
+    Enter your name and email to place order.
+
+    <md-input-container>
+        <label>Title</label>
+        <input ng-model="user.title">
+    </md-input-container>
+
+    <md-input-container>
+        <label>Email</label>
+        <input ng-model="user.email" type="email">
+    </md-input-container>
+
+    <md-button class="md-raised md-primary">Place Order</md-button>
+
+</md-content>
+
+<script src="./index.js"></script>
+
+</body>
+</html>
