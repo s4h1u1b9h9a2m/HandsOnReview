@@ -3,28 +3,37 @@ package hello; /**
  */
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
 
 @Entity
-public class Order {
+public class OrdersLine implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String Name;
+
     private Double Amount;
     private Integer Qty;
-    @OneToMany
-    private List<Product> product;
-    @ManyToOne
-    private Customer customer;
 
-    public String getName() {
-        return Name;
+    @ManyToOne
+    private Product product;
+    @ManyToOne
+    private Orders orders;
+
+    public Product getProduct() {
+        return product;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Orders getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Orders orders) {
+        this.orders = orders;
     }
 
     public Double getAmount() {
@@ -42,5 +51,4 @@ public class Order {
     public void setQty(Integer qty) {
         Qty = qty;
     }
-
 }

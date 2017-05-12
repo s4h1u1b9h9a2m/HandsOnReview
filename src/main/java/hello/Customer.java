@@ -14,7 +14,15 @@ public class Customer {
     private String Name;
     private String Email;
     @OneToMany
-    private List<Order> order;
+    private List<Orders> orders;
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
+    }
 
     public String getName() {
         return Name;

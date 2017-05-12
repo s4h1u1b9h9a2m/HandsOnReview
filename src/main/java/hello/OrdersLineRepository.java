@@ -8,9 +8,9 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import java.util.List;
 
-@RepositoryRestResource(collectionResourceRel = "order", path = "order")
-public interface OrderRepository extends PagingAndSortingRepository<Order, Long> {
+@RepositoryRestResource(collectionResourceRel = "ordersline", path = "ordersline")
+public interface OrdersLineRepository extends PagingAndSortingRepository<OrdersLine, Long> {
 
-    List<Order> findAll();
+    List<OrdersLine> findAll();
 
 }

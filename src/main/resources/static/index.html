@@ -32,7 +32,7 @@ Please enter a quantity and click the "Add" button to put this in your shopping 
             <td>{{product.name}}</td>
             <td>$ {{product.price}}</td>
             <td>
-                <input type="text" ng-model=product.qty/>
+                <input type="text" ng-model=product.qty>
             </td>
             <td>
                 <md-button class="md-raised md-primary" ng-click="addToCart(product)">Add</md-button>
@@ -56,9 +56,6 @@ Please enter a quantity and click the "Add" button to put this in your shopping 
             <td>{{product.name}}</td>
             <td>{{product.qty}}</td>
             <td>$ {{product.qty * product.price}}</td>
-            <td>
-                <md-button class="md-raised md-primary">Delete</md-button>
-            </td>
         </tr>
         </tbody>
     </table>
@@ -72,8 +69,8 @@ Please enter a quantity and click the "Add" button to put this in your shopping 
     Enter your name and email to place order.
 
     <md-input-container>
-        <label>Title</label>
-        <input ng-model="user.title">
+        <label>Name</label>
+        <input ng-model="user.name">
     </md-input-container>
 
     <md-input-container>
@@ -81,7 +78,11 @@ Please enter a quantity and click the "Add" button to put this in your shopping 
         <input ng-model="user.email" type="email">
     </md-input-container>
 
-    <md-button class="md-raised md-primary">Place Order</md-button>
+    <md-button class="md-raised md-primary" ng-click="placeOrder()">Place Order</md-button>
+
+    <md-divider></md-divider>
+
+    <h1>{{order_text}}</h1>
 
 </md-content>
 
