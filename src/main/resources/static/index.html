@@ -14,51 +14,91 @@
 
     <link rel="stylesheet" href="./js/angular-material.min.css">
 
-</head>
-<body ng-app="MyApp" ng-cloak>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
 
-Please enter a quantity and click the "Add" button to put this in your shopping cart
+</head>
+<body ng-app="MyApp" ng-cloak style="width: 50%; margin: auto;">
+
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <h2 flex md-truncate>Demo Sales Application</h2>
+    </div>
+</md-toolbar>
 
 <md-content ng-controller="AppCtrl">
-    <table border="2">
-        <th>
-        <td>Name</td>
-        <td>Price</td>
-        <td>Qty</td>
-        <td></td>
-        </th>
-        <tbody>
-        <tr ng-repeat="product in products">
-            <td>{{product.name}}</td>
-            <td>$ {{product.price}}</td>
-            <td>
-                <input type="text" ng-model=product.qty>
-            </td>
-            <td>
-                <md-button class="md-raised md-primary" ng-click="addToCart(product)">Add</md-button>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+
+    <md-list ng-cloak>
+        <md-subheader class="md-no-sticky">Please enter a quantity and click the "Add" button to put this in your
+            shopping cart
+        </md-subheader>
+
+        <md-list-item class="md-3-line" ng-repeat="product in products">
+            <div class="md-list-item-text" layout="column">
+                <h3>{{product.name}}</h3>
+                <p>$ {{product.price}}</p>
+            </div>
+            <div>
+                <md-input-container>
+                    <label>Quantity</label>
+                    <input ng-model="product.qty">
+                </md-input-container>
+            </div>
+            <i class="material-icons" ng-click="addToCart(product)">add_box</i>
+        </md-list-item>
+
+    </md-list>
+
+    <!--<table border="2">-->
+    <!--<th>-->
+    <!--<td>Name</td>-->
+    <!--<td>Price</td>-->
+    <!--<td>Qty</td>-->
+    <!--<td></td>-->
+    <!--</th>-->
+    <!--<tbody>-->
+    <!--<tr ng-repeat="product in products">-->
+    <!--<td>{{product.name}}</td>-->
+    <!--<td>$ {{product.price}}</td>-->
+    <!--<td>-->
+    <!--<input type="text" ng-model=product.qty>-->
+    <!--</td>-->
+    <!--<td>-->
+    <!--<md-button class="md-raised md-primary" ng-click="addToCart(product)">Add</md-button>-->
+    <!--</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+    <!--</table>-->
 
     <md-divider></md-divider>
 
-    Your Shopping Cart
+    <md-list ng-cloak>
+        <md-subheader class="md-no-sticky">Your Shopping Cart</md-subheader>
 
-    <table border="2">
-        <th>
-        <td>Name</td>
-        <td>Qty</td>
-        <td>Amount</td>
-        </th>
-        <tbody>
-        <tr ng-repeat="product in cart">
-            <td>{{product.name}}</td>
-            <td>{{product.qty}}</td>
-            <td>$ {{product.qty * product.price}}</td>
-        </tr>
-        </tbody>
-    </table>
+        <md-list-item class="md-3-line" ng-repeat="product in cart">
+            <div class="md-list-item-text" layout="column">
+                <h3>{{product.name}}</h3>
+                <h4>{{product.qty}}</h4>
+                <p>$ {{product.qty * product.price}}</p>
+            </div>
+        </md-list-item>
+
+    </md-list>
+
+    <!--<table border="2">-->
+    <!--<th>-->
+    <!--<td>Name</td>-->
+    <!--<td>Qty</td>-->
+    <!--<td>Amount</td>-->
+    <!--</th>-->
+    <!--<tbody>-->
+    <!--<tr ng-repeat="product in cart">-->
+    <!--<td>{{product.name}}</td>-->
+    <!--<td>{{product.qty}}</td>-->
+    <!--<td>$ {{product.qty * product.price}}</td>-->
+    <!--</tr>-->
+    <!--</tbody>-->
+    <!--</table>-->
 
     <md-divider></md-divider>
 
